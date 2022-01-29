@@ -1,2 +1,3 @@
-const test = "TESTING"
-console.log(test)
+import { createHistoryMap } from "./spotify";
+
+createHistoryMap()
