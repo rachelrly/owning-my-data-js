@@ -5,4 +5,4 @@ export interface SongHistoryType {
     song: SongType
 }
 
-export type HistoryMapType = Map<string, number>
+export type HistoryMapType = Map<string, SongHistoryType>
