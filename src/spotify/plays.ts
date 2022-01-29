@@ -1,11 +1,10 @@
 import { SpotifyHistory } from "./spotify_data"
-import { SongTitleArtistInputType, PlaysHistoryMapType, OGSongType, SongType, PlaysSongType } from './types'
+import { PlaysHistoryMapType, OGSongType, SongType, PlaysSongType } from './types'
 import { createTitleArtistString } from "./utils"
 
-// get all listens of a specific song
-// 
-
-// This file works with the song data ranked by listen count
+// This file is an improved(?) version of './listens.ts'
+// That stores each play of the song in an array on the song's history
+// and uses `song.plays.length` to rank songs
 export function createPlaysHistoryMap(){
     const MappedSpotifyHistory: PlaysHistoryMapType = new Map()
     SpotifyHistory.forEach((value: OGSongType) => {

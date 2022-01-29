@@ -9,11 +9,11 @@ export function printTop10(history: SongType[]):void {
 }
 
 export function printPlaysTop10(history: PlaysSongType[]): void {
-    const plays = (({plays}:PlaysSongType)=> plays.slice(0, 10).map((play: SongType, index)=> `${index + 1}. ${formatDate(play.endTime)}`))
-    console.log(history.slice(0, 10).map((song: PlaysSongType, index) => `${index + 1}. ${createTitleArtistString(song)} ${plays(song)}`))
+    const plays = (({plays}:PlaysSongType)=> plays.slice(0, 10).map((play: SongType)=> `${formatDate(play.endTime)}`))
+    console.log(history.slice(0, 10).map((song: PlaysSongType, index) => `${index + 1}. ${createTitleArtistString(song)} \n ${plays(song)}`))
 }
 
 export function formatDate(date:string):string {
     const dateObj = new Date(date)
-    return `${dateObj.toLocaleString('en-US')} ${dateObj.toLocaleTimeString('en-US')}`
+    return `${dateObj.toLocaleTimeString('en-US')} ${dateObj.toLocaleString('en-US')}`
 }
