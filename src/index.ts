@@ -1,3 +1,4 @@
-import { createHistoryMap } from "./spotify";
+import { printTop10, sortHistoryMap, createHistoryMap } from "./spotify";
 
-createHistoryMap()
+// Logs song rank, title, and artist of songs with top 10 listens
+printTop10(sortHistoryMap(createHistoryMap()))

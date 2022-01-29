@@ -11,9 +11,8 @@ export function createHistoryMap(){
         const songId = createTitleArtistString(value)
         if (MappedSpotifyHistory.has(songId)){
             const song = MappedSpotifyHistory.get(songId)
-            // This is to placate the TS compiler
-            // We check if it is present with the Map.has above
-            // So it will ALWAYS be present at this point
+            // This is to placate the TS compiler with Map methods
+            // We already check if song exists above, so it will always be present
             if (song && 'listens' in song){
                 const storeSong: SongType = value
                 if ('msPlayed' in storeSong) delete storeSong.msPlayed
@@ -22,7 +21,6 @@ export function createHistoryMap(){
         }
         else MappedSpotifyHistory.set(songId, {listens: 1, ...value})
     })
-   //  console.log(sortHistoryMap(MappedSpotifyHistory))
     return MappedSpotifyHistory
 }
 
@@ -37,3 +35,9 @@ export function sortHistoryMap(history: HistoryMapType, minListens = 100) {
     .filter((song: CountedSongType) => song.listens > 100)
     .slice(0, minListens)
 }
+
+export function printTop10(history: SongType[]):void{
+    console.log(history.slice(0, 10).map((song: SongType, index) => `${index + 1}. ${createTitleArtistString(song)}`))
+}
+
+
