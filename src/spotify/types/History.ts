@@ -1,8 +1,5 @@
-import {SongType} from './Song'
+import {CountedSongType} from './Song'
 
-export interface SongHistoryType {
-    listens: number,
-    song: SongType
-}
 
-export type HistoryMapType = Map<string, SongHistoryType>
+
+export type HistoryMapType = Map<string, CountedSongType>

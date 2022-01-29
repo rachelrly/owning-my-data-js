@@ -6,8 +6,12 @@ export interface SongType {
     listens?: number
 }
 
-export interface SongValueType {
-    value: SongType
+export interface CountedSongType extends Omit<SongType, 'listens'> {
+    listens: number
+}
+
+export interface OGSongType extends Omit<SongType, 'msPlayed'> { // What we get from Spotify data
+    msPlayed: number
 }
 
 export type SongTitleArtistInputType = Omit<SongType, 'msPlayed' | 'endTime'>
