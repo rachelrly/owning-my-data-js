@@ -4,16 +4,19 @@ import { SongTitleArtistInputType } from './types'
 
 
 export function createHistoryMap(){
-    const MappedSpotifyHistory:any = {}
+    const MappedSpotifyHistory: Map<string, number> = new Map()
 
     SpotifyHistory.forEach((value) => {
         const songId = createTitleArtistString(value)
-        if (songId in MappedSpotifyHistory){
-            MappedSpotifyHistory[songId] = MappedSpotifyHistory[songId] + 1
+        if (MappedSpotifyHistory.has(songId)){
+            const listens = MappedSpotifyHistory.get(songId)
+            // This is to placate the TS compiler
+            // We check if it is present with the Map.has above
+            // So it will ALWAYS be present at this point
+            if (listens) MappedSpotifyHistory.set(songId, listens + 1)
         }
-        else MappedSpotifyHistory[songId] = 1
+        else MappedSpotifyHistory.set(songId, 1)
     })
-    console.log('THESE ARE MY VALUES', MappedSpotifyHistory)
     return MappedSpotifyHistory
 }
 

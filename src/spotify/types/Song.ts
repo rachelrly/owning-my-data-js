@@ -2,7 +2,7 @@ export interface SongType {
     endTime: string
     artistName: string
     trackName: string
-    msPlayed: 0
+    msPlayed: number
 }
 
 export interface SongValueType {
