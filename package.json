@@ -1,0 +1,16 @@
+{
+  "name": "owning-my-data",
+  "version": "1.0.0",
+  "description": "A data visualization self portrait",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "start": "tsc && node",
+    "dev": "tsc && nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rachel Reilly",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
