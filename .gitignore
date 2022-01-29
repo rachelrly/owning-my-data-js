@@ -1,4 +1,7 @@
 /spotify_data_dump_01:29:22
+/src/spotify/spotify_data/*
+!/src/spotify/spotify_data/index.ts
+
 /dist
 /node_modules
 .DS_Store

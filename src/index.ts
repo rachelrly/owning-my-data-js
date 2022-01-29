@@ -1,2 +1,1 @@
-const test = "TESTING"
-console.log(test)
+import {SpotifyHistory} from './spotify_data'
