@@ -1,1 +1,3 @@
-import {SpotifyHistory} from './spotify_data'
+import { createHistoryMap } from "./spotify";
+
+createHistoryMap()
