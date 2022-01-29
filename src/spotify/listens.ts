@@ -1,11 +1,10 @@
 import { SpotifyHistory } from "./spotify_data"
-import { SongTitleArtistInputType } from './types'
+import { SongTitleArtistInputType, HistoryMapType } from './types'
 
 
 
 export function createHistoryMap(){
-    const MappedSpotifyHistory: Map<string, number> = new Map()
-
+    const MappedSpotifyHistory: HistoryMapType = new Map()
     SpotifyHistory.forEach((value) => {
         const songId = createTitleArtistString(value)
         if (MappedSpotifyHistory.has(songId)){
@@ -17,10 +16,14 @@ export function createHistoryMap(){
         }
         else MappedSpotifyHistory.set(songId, 1)
     })
+    sortHistoryMap(MappedSpotifyHistory)
     return MappedSpotifyHistory
 }
 
-
 function createTitleArtistString({artistName, trackName} : SongTitleArtistInputType): string {
     return `${trackName} by ${artistName}`
+}
+
+export function sortHistoryMap(history: HistoryMapType) {
+    return [...history.entries()].sort((a, b) => a[1] > b[1] ? -1 : 1)
 }
