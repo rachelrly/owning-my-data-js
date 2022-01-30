@@ -12,7 +12,7 @@ import {
 // printPlaysTop10(sortPlaysHistoryMap(createPlaysHistoryMap()))
 // printTop10(sortListensHistoryMap(createListensHistoryMap()))
 
-Logs plays of most recently played song
+// Logs plays of most recently played song
 const history = sortPlaysHistoryMap(createPlaysHistoryMap())
 const find = SpotifyHistory[0]
 const song = getSongFromHistoryArray(history, find)
