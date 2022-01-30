@@ -25,6 +25,8 @@ import {
   Tooltip
 } from 'chart.js'
 
+import { SongType } from './types'
+
 Chart.register(
   ArcElement,
   LineElement,
@@ -51,7 +53,7 @@ Chart.register(
   Tooltip
 )
 
-export function chart() {
+export function chart(history: SongType[]) {
   const elem = document.getElementById('myChart') as HTMLCanvasElement
   const ctx = elem ? elem.getContext('2d') : null
 
