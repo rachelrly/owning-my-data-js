@@ -1,25 +1,14 @@
-import { sortPlaysHistoryMap, createPlaysHistoryMap } from '../plays'
+// import { sortPlaysHistoryMap, createPlaysHistoryMap } from '../plays'
 
-const history = sortPlaysHistoryMap(createPlaysHistoryMap())
+// const history = sortPlaysHistoryMap(createPlaysHistoryMap())
+
+import { ChartDataType } from '../types'
 
 // interface GenericType<A, T> {
 //   [A: string]: T
 // }
 
-interface DatasetType {
-  label: string
-  data: number[]
-  backgroundColor: string[]
-  borderColor?: string[]
-  borderWidth?: number
-}
-
-interface DataType {
-  labels: string[]
-  datasets: DatasetType[]
-}
-
-export const data: DataType = {
+export const data: ChartDataType = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
     {

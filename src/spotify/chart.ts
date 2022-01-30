@@ -25,9 +25,9 @@ import {
   Tooltip
 } from 'chart.js'
 
-import { SongType } from '../types'
-import { config } from './config'
-import { data } from './setup'
+// import { SongType } from '../types'
+// import { config } from './config'
+import { data } from './data/song'
 
 Chart.register(
   ArcElement,
@@ -64,6 +64,7 @@ export function chart() {
       type: 'bar',
       data,
       options: {
+        responsive: true,
         scales: {
           y: {
             beginAtZero: true

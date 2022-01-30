@@ -9,7 +9,7 @@
 // const find = SpotifyHistory[0]
 // const song = getSongFromHistoryArray(history, find)
 // if (song !== undefined) logSong(song)
-import { chart } from './spotify/chart'
+import { chart } from './spotify'
 ;(function () {
   chart()
 })()
