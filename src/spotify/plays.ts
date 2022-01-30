@@ -45,7 +45,7 @@ export function sortPlaysHistoryMap(history: HistoryMapType, minListens = 100) {
         ? -1
         : 1
     )
-    .slice(0, 100)
+    .slice(0, 100) // Top 100 songs
     .map((song: [string, SongType]) => song[1])
     .filter(
       (song: SongType) =>
