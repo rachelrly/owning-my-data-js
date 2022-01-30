@@ -1,19 +1,25 @@
-// import { sortPlaysHistoryMap, createPlaysHistoryMap } from '../plays'
+import { sortPlaysHistoryMap, createPlaysHistoryMap } from '../plays'
+import { createTitleArtistString } from '../utils'
 
-// const history = sortPlaysHistoryMap(createPlaysHistoryMap())
+import { ChartDataType, SongType } from '../types'
 
-import { ChartDataType } from '../types'
+const history = sortPlaysHistoryMap(createPlaysHistoryMap()).slice(0, 20)
+
+const labels = history.map((song: SongType) => createTitleArtistString(song))
+const dataset = history.map((song: SongType) =>
+  song.plays !== undefined ? song.plays.length : 1
+)
 
 // interface GenericType<A, T> {
 //   [A: string]: T
 // }
 
 export const data: ChartDataType = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  labels,
   datasets: [
     {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      label: 'total listens',
+      data: dataset,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
