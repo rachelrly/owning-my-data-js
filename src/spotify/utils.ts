@@ -18,25 +18,27 @@ export function printTop10(history: SongType[]): void {
   )
 }
 
-export function printPlaysTop10(history: SongType[]): void {
-  function logPlays({ plays }: SongType) {
-    if (plays)
-      plays
-        .slice(0, 10)
-        .map((play: SongPlayDataType) => console.log(formatDate(play.endTime)))
-  }
+export function logSong(song: SongType, index?: number) {
+  const rank = index ? `${index + 1}.` : ''
+  console.log(`${rank}${createTitleArtistString(song)}`)
+  _logPlays(song)
+}
 
-  history.slice(0, 10).forEach((song: SongType, index) => {
-    console.log(`${index + 1}. ${createTitleArtistString(song)}`)
-    logPlays(song)
-  })
+function _logPlays({ plays }: SongType) {
+  if (plays === undefined) console.error('This song has no plays listed.')
+  else
+    plays
+      .slice(0, 10)
+      .map((play: SongPlayDataType) => console.log(formatDate(play.endTime)))
+}
+
+export function printPlaysTop10(history: SongType[]): void {
+  history.slice(0, 10).forEach(logSong)
 }
 
 export function formatDate(date: string): string {
   const dateObj = new Date(date)
-  return `${dateObj.toLocaleTimeString('en-US')} ${dateObj.toLocaleString(
-    'en-US'
-  )}`
+  return `${dateObj.toLocaleString('en-US')}`
 }
 
 /**
