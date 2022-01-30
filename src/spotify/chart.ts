@@ -25,8 +25,6 @@ import {
   Tooltip
 } from 'chart.js'
 
-// import { SongType } from '../types'
-// import { config } from './config'
 import { data } from './data/song'
 
 Chart.register(
