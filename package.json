@@ -2,15 +2,23 @@
   "name": "owning-my-data",
   "version": "1.0.0",
   "description": "A data visualization self portrait",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": "index.html",
   "main": "dist/src/index.js",
   "scripts": {
-    "start": "tsc && node",
-    "dev": "tsc && nodemon",
+    "start": "rm -rf /dist && tsc && node",
+    "dev": "rm -rf /dist && tsc && nodemon",
+    "web": "rm -rf /dist && tsc && parcel -p 6883 --open chrome",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rachel Reilly",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@types/node": "^17.0.13",
+    "nodemon": "^2.0.15",
+    "parcel": "^2.2.1"
+  },
+  "dependencies": {
+    "chart.js": "^3.7.0"
   }
 }
