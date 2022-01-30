@@ -41,19 +41,15 @@ export function formatDate(date: string): string {
   return `${dateObj.toLocaleString('en-US')}`
 }
 
-/**
- *
- * @param history History array made from HistoryMap
- * @param key Title and artist as formatted with 'createTitleArtistString'
- */
 export function getSongFromHistoryArray(
   history: SongType[],
-  key: string
-): SongType | Error {
-  const song = history.find(
-    (song: SongType) => createTitleArtistString(song) === key
+  find: SongType
+): SongType | undefined {
+  const mySong = history.find(
+    (song: SongType) =>
+      createTitleArtistString(song) === createTitleArtistString(find)
   )
-  if (song === undefined)
-    return new Error('No song with key in this history array')
-  else return song
+  if (mySong === undefined)
+    console.error('No song with key in this history array')
+  else return mySong
 }
