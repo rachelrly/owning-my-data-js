@@ -1,4 +1,4 @@
-import { sortPlaysHistoryMap, createPlaysHistoryMap } from './spotify'
+// import { sortPlaysHistoryMap, createPlaysHistoryMap } from './spotify'
 
 // Logs song rank, title, and artist of songs with top 10 listens
 // printPlaysTop10(sortPlaysHistoryMap(createPlaysHistoryMap()))
@@ -11,6 +11,5 @@ import { sortPlaysHistoryMap, createPlaysHistoryMap } from './spotify'
 // if (song !== undefined) logSong(song)
 import { chart } from './spotify/chart'
 ;(function () {
-  const history = sortPlaysHistoryMap(createPlaysHistoryMap())
-  chart(history)
+  chart()
 })()
