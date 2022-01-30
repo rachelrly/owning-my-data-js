@@ -26,14 +26,10 @@ export function printPlaysTop10(history: SongType[]): void {
         .map((play: SongPlayDataType) => console.log(formatDate(play.endTime)))
   }
 
-  console.log(
-    history
-      .slice(0, 10)
-      .map(
-        (song: SongType, index) =>
-          `${index + 1}. ${createTitleArtistString(song)} \n ${logPlays(song)}`
-      )
-  )
+  history.slice(0, 10).forEach((song: SongType, index) => {
+    console.log(`${index + 1}. ${createTitleArtistString(song)}`)
+    logPlays(song)
+  })
 }
 
 export function formatDate(date: string): string {
